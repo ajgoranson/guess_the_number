@@ -8,7 +8,7 @@ too_high = 'too high'
 
 def configure_range():
     '''Set the high and low values for the random number'''
-    return 1, 10
+    return 1, 1000
 
 
 def generate_secret(low, high):
@@ -30,7 +30,11 @@ def check_guess(guess, secret):
     if guess > secret:
         return too_high
 
+
+# Validation Branch here it is
+
     
+
 def validation():
     while True:
         try:
@@ -54,7 +58,11 @@ def main():
         guess = validation()
         result = check_guess(guess, secret)
         guesses = guesses + 1
+
+        print('The number of guesses youve tried is' + guesses)
+
         print(f'Number of guesses: {guesses}')
+
         print(result)
 
         if result == correct:
