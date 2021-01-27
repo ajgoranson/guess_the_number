@@ -29,6 +29,7 @@ def check_guess(guess, secret):
     if guess > secret:
         return too_high
 
+# Validation Branch
 def validation():
     while True:
         try:
