@@ -38,7 +38,7 @@ def check_guess(guess, secret):
 def validation():
     while True:
         try:
-            userinput = int(input('Guess the secret number'))
+            userinput = int(input('Guess the secret number '))
         except ValueError:
             print('This is not an integer, try again')
             continue
@@ -53,20 +53,23 @@ def main():
     (low, high) = configure_range()
     secret = generate_secret(low, high)
     guesses = 0
-
-    while True:
+    keep_playing = True
+    while keep_playing:
         guess = validation()
         result = check_guess(guess, secret)
         guesses = guesses + 1
-
-        print('The number of guesses youve tried is' + guesses)
 
         print(f'Number of guesses: {guesses}')
 
         print(result)
 
         if result == correct:
-            break
+            keep_playing = input('Do you want to keep player? Press enter to quit, ' 
+                                'or anything else to keep going.')
+            if keep_playing:
+                main()
+       
+    
 
 
 if __name__ == '__main__':
