@@ -31,8 +31,19 @@ def check_guess(guess, secret):
         return too_high
 
     
-    
-    
+def validation():
+    while True:
+        try:
+            userinput = int(input('Guess the secret number'))
+        except ValueError:
+            print('This is not an integer, try again')
+            continue
+        else:
+            return userinput
+            break
+  
+      
+
 
 def main():
     (low, high) = configure_range()
@@ -40,7 +51,7 @@ def main():
     guesses = 0
 
     while True:
-        guess = get_guess()
+        guess = validation()
         result = check_guess(guess, secret)
         guesses = guesses + 1
         print(f'Number of guesses: {guesses}')
